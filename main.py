@@ -1,7 +1,7 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
-
+from database import create_table, insert_data
 
 def submit_data():
     status = terms_check_var.get()
@@ -15,7 +15,10 @@ def submit_data():
         num_courses = num_courses_spinbox.get()
         num_semesters = num_semesters_spinbox.get()
         registration_status = reg_status_var.get()
-        print(first_name)
+        
+        # print(num_courses, num_semesters)
+        create_table()
+        insert_data(first_name, last_name, title, age, nationality, num_courses, num_semesters, registration_status)
     else:
         tkinter.messagebox.showwarning(title="Error", message="You have not accepted the terms and conditions")
 
